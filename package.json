@@ -1,0 +1,19 @@
+{
+  "name": "samplewatsap",
+  "version": "1.0.0",
+  "description": "A node application to simulate message sending to watsapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Moverr/simplewatsappmessage.git"
+  },
+  "author": "Muyinda Rogers (moverr)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Moverr/simplewatsappmessage/issues"
+  },
+  "homepage": "https://github.com/Moverr/simplewatsappmessage#readme"
+}
