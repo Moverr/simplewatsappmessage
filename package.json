@@ -16,5 +16,8 @@
     "url": "https://github.com/Moverr/simplewatsappmessage/issues"
   },
   "homepage": "https://github.com/Moverr/simplewatsappmessage#readme",
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "twilio": "^3.37.0"
+  }
 }
