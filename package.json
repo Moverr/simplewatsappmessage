@@ -1,29 +1,35 @@
 {
-  "name": "samplewatsap",
-  "version": "1.0.0",
-  "description": "A node application to simulate message sending to watsapp",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Moverr/simplewatsappmessage.git"
-  },
-  "author": "Muyinda Rogers (moverr)",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Moverr/simplewatsappmessage/issues"
-  },
-  "homepage": "https://github.com/Moverr/simplewatsappmessage#readme",
-  "keywords": [],
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "twilio": "^3.37.0"
-  },
-  "devDependencies": {
-    "jest": "^24.9.0",
-    "supertest": "^4.0.2"
-  }
+    "name": "samplewatsap",
+    "version": "1.0.0",
+    "description": "A node application to simulate message sending to watsapp",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Moverr/simplewatsappmessage.git"
+    },
+    "author": "Muyinda Rogers (moverr)",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Moverr/simplewatsappmessage/issues"
+    },
+    "homepage": "https://github.com/Moverr/simplewatsappmessage#readme",
+    "keywords": [],
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "twilio": "^3.37.0"
+    },
+    "devDependencies": {
+        "jest": "^24.9.0",
+        "supertest": "^4.0.2"
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "coveragePathIgnorePatterns": [
+            "/node_modules/"
+        ]
+    }
 }
