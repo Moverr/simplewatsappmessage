@@ -28,8 +28,10 @@ app.post('/', function(req, res) {
 
     console.log(body);
 
+    //console.log('Message Sent Succesfully! ' + message.sid)
     subscribers.forEach(contact => {
         sendWhatsapp()
+            //+14155238886
         client.messages.create({
             from: 'whatsapp:+14155238886',
             to: 'whatsapp:' + contact,
@@ -48,25 +50,13 @@ app.post('/', function(req, res) {
 
 function sendWhatsapp(from, to, body, callback) {
     client.messages.create({
-        from: 'whatsapp:+14155238886',
-        to: 'whatsapp:' + contact,
+        from: 'whatsapp:' + from,
+        to: 'whatsapp:' + to,
         body: body
     }).then(
-        message => console.log('Message Sent Succesfully! ' + message.sid)
-
+        message => callback(message)
     );
 }
 
 
-
-
-
-
-
-
-
-
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
-
-
-// to: 'whatsapp:+256779820962'
