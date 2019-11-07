@@ -6,7 +6,7 @@ const client = require('twilio')('AC1116f7f37712406b6ad309490fcfa71f', '1b29dee0
 
 client.messages.create({
     from: 'whatsapp:+14155238886',
-    to: 'whatsapp:+256787744279',
+    to: 'whatsapp:+256779820962',
     body: 'Hello Testing API Message Sending'
 }).then(message => console.log(message.sid));
 
