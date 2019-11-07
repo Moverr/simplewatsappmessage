@@ -19,9 +19,14 @@ client.messages.create({
 
 */
 
-app.get('/', function(req, res)) {
-    res.send('Hello World!'))
-}
+app.get('/', function(req, res) {
+    res.send('Hello World!');
+});
+
+
+app.post('/', function(req, res) {
+    res.send('SEnd Message!');
+});
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
