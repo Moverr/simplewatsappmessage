@@ -19,9 +19,12 @@ client.messages.create({
 
 */
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', function(req, res)) {
+    res.send('Hello World!'))
+}
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 
-// to: 'whatsapp:+256779820962',
+// to: 'whatsapp:+256779820962'
