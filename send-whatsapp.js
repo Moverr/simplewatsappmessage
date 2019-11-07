@@ -25,19 +25,18 @@ app.get('/', function(req, res) {
 
 
 app.post('/', function(req, res) {
-    var message = req.body.message;
+    var body = req.body.message;
+    var message = "";
 
     client.messages.create({
         from: 'whatsapp:+14155238886',
         to: 'whatsapp:+256779820962',
-        body: message
+        body: body
     }).then(
-        // message => console.log(message.sid);
-        res.send('Message Sent Succesfully! ' + message.sid); console.log(message.sid);
-
+        message => console.log(message.sid)
     );
 
-
+    res.send('Message Sent Succesfully! ' + message.sid);
 
 
 });
