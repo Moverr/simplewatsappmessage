@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 app.use(express.json())
 
-const port = 3000
+const port = 3005
 
 
 const TWILIO_PUBLICKEY = process.env.TWILIO_PUBLICKEY;
@@ -28,7 +28,7 @@ app.post('/', function(req, res) {
 
     subscribers.forEach(contact => {
         sendWhatsappMessage("+14155238886", contact, body, (message) => {
-            // console.log('Message Sent Succesfully! ' + message.sid)
+            console.log('Message Sent Succesfully! ' + message.sid)
         });
     });
 
@@ -51,4 +51,4 @@ function sendWhatsappMessage(from, to, body, callback) {
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 
-module.exports = app
+// module.exports = app
