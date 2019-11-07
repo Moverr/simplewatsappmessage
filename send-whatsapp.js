@@ -30,17 +30,9 @@ app.post('/', function(req, res) {
 
     //console.log('Message Sent Succesfully! ' + message.sid)
     subscribers.forEach(contact => {
-        sendWhatsapp()
-            //+14155238886
-        client.messages.create({
-            from: 'whatsapp:+14155238886',
-            to: 'whatsapp:' + contact,
-            body: body
-        }).then(
-            message => console.log('Message Sent Succesfully! ' + message.sid)
-
-        );
-
+        sendWhatsappMessage("+14155238886", contact, body, (message) => {
+            console.log('Message Sent Succesfully! ' + message.sid)
+        });
     });
 
     res.send('Message Sent Succesfully! ')
@@ -48,7 +40,7 @@ app.post('/', function(req, res) {
 
 
 
-function sendWhatsapp(from, to, body, callback) {
+function sendWhatsappMessage(from, to, body, callback) {
     client.messages.create({
         from: 'whatsapp:' + from,
         to: 'whatsapp:' + to,
