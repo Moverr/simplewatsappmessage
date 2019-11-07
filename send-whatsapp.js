@@ -1,5 +1,7 @@
 const express = require('express')
 const app = express()
+app.use(express.json())
+
 const port = 3000
 
 
@@ -8,16 +10,12 @@ const TWILIO_SECRETKEY = process.env.TWILIO_SECRETKEY;
 
 const client = require('twilio')(TWILIO_PUBLICKEY, TWILIO_SECRETKEY);
 
-/*
-
-client.messages.create({
-    from: 'whatsapp:+14155238886',
-    to: 'whatsapp:+256779820962',
-    body: 'Hello Testing API Message Sending'
-}).then(message => console.log(message.sid));
+// these subscribers help in identifying which guys should be on the mailing list
+const subscribers = [
+    "+256779820962", "+256779820962"
+]
 
 
-*/
 
 app.get('/', function(req, res) {
     res.send('Hello World!');
@@ -25,21 +23,43 @@ app.get('/', function(req, res) {
 
 
 app.post('/', function(req, res) {
-    var body = req.body.message;
+    var body = req.body.bodytext;
     var message = "";
 
+    console.log(body);
+
+    subscribers.forEach(contact => {
+
+        client.messages.create({
+            from: 'whatsapp:+14155238886',
+            to: 'whatsapp:+256779820962',
+            body: body
+        }).then(
+            console.log('Message Sent Succesfully! ' + message.sid)
+
+        );
+
+    });
+
+    /*
     client.messages.create({
         from: 'whatsapp:+14155238886',
         to: 'whatsapp:+256779820962',
         body: body
     }).then(
-        message => console.log(message.sid)
+        message => res.send('Message Sent Succesfully! ' + message.sid)
+
     );
 
-    res.send('Message Sent Succesfully! ' + message.sid);
+*/
+
+
+
 
 
 });
+
+
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
