@@ -29,35 +29,39 @@ app.post('/', function(req, res) {
     console.log(body);
 
     subscribers.forEach(contact => {
-
+        sendWhatsapp()
         client.messages.create({
             from: 'whatsapp:+14155238886',
             to: 'whatsapp:' + contact,
             body: body
         }).then(
-            console.log('Message Sent Succesfully! ' + message.sid)
+            message => console.log('Message Sent Succesfully! ' + message.sid)
 
         );
 
     });
 
-    /*
+    res.send('Message Sent Succesfully! ')
+});
+
+
+
+function sendWhatsapp(from, to, body, callback) {
     client.messages.create({
         from: 'whatsapp:+14155238886',
-        to: 'whatsapp:+256779820962',
+        to: 'whatsapp:' + contact,
         body: body
     }).then(
-        message => res.send('Message Sent Succesfully! ' + message.sid)
+        message => console.log('Message Sent Succesfully! ' + message.sid)
 
     );
-
-*/
-
+}
 
 
 
 
-});
+
+
 
 
 
