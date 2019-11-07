@@ -1,7 +1,12 @@
-const client = require('twilio')('AC1116f7f37712406b6ad309490fcfa71f', '1b29dee0a36addb39f0e5010f0fc6e8b');
+const TWILIO_PUBLICKEY = process.env.TWILIO_PUBLICKEY;
+const TWILIO_SECRETKEY = process.env.TWILIO_SECRETKEY;
 
 
+const client = require('twilio')(TWILIO_PUBLICKEY, TWILIO_SECRETKEY);
 
+
+// TWILIO_PUBLICKEY
+// TWILIO_SECRETKEY
 //send message to 
 
 client.messages.create({
