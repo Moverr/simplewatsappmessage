@@ -26,9 +26,6 @@ app.post('/', function(req, res) {
     var body = req.body.bodytext;
     var message = "";
 
-    console.log(body);
-
-    //console.log('Message Sent Succesfully! ' + message.sid)
     subscribers.forEach(contact => {
         sendWhatsappMessage("+14155238886", contact, body, (message) => {
             console.log('Message Sent Succesfully! ' + message.sid)
