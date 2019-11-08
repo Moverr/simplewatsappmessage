@@ -14,7 +14,7 @@ const client = require('twilio')(TWILIO_PUBLICKEY, TWILIO_SECRETKEY);
 
 // these subscribers help in identifying which guys should be on the mailing list
 const subscribers = [
-    "+256779820962", "+256779820962"
+    "+256779820962", "+256794132389"
 ]
 
 
@@ -26,13 +26,18 @@ app.get('/', function(req, res) {
 
 app.post('/', function(req, res) {
     var body = req.body.bodytext;
-    var message = "";
+    var contacts = req.body.contacts;
 
-    subscribers.forEach(contact => {
-        sendWhatsappMessage("+14155238886", contact, body, (message) => {
-            console.log('Message Sent Succesfully! ' + message.sid)
-        });
-    });
+    console.log("Contacts");
+    console.log(contacts);
+
+    var message = "";
+    /*
+        subscribers.forEach(contact => {
+            sendWhatsappMessage("+14155238886", contact, body, (message) => {
+                console.log('Message Sent Succesfully! ' + message.sid)
+            });
+        });  */
 
     res.send('Message Sent Succesfully! ')
 });
