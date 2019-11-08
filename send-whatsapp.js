@@ -28,16 +28,17 @@ app.post('/', function(req, res) {
     var body = req.body.bodytext;
     var contacts = req.body.contacts;
 
+    let contactsarray = contacts.split(",");
     console.log("Contacts");
-    console.log(contacts);
+    console.log(contactsarray);
 
     var message = "";
-    /*
-        subscribers.forEach(contact => {
-            sendWhatsappMessage("+14155238886", contact, body, (message) => {
-                console.log('Message Sent Succesfully! ' + message.sid)
-            });
-        });  */
+
+    contactsarray.forEach(contact => {
+        sendWhatsappMessage("+14155238886", contact, body, (message) => {
+            console.log('Message Sent Succesfully! ' + message.sid)
+        });
+    });
 
     res.send('Message Sent Succesfully! ')
 });
